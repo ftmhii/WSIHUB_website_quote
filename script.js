@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
         logoDesignCheckbox.checked = false;
         siteRecaptchaCheckbox.checked = false;
         popupWindowCheckbox.checked = false;
-        bilingualOptionSelect.value = "none";
+        //bilingualOptionSelect.value = "none";
         bilingualPagesInput.value = 0;
         adaWidgetCheckbox.checked = false;
 
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
         wixLogoDesignCheckbox.checked = false;
         wixSiteRecaptchaCheckbox.checked = false;
         wixPopupWindowCheckbox.checked = false;
-        wixBilingualOptionSelect.value = "none";
+        //wixBilingualOptionSelect.value = "none";
         wixBilingualPagesInput.value = 0;
         wixAdaWidgetCheckbox.checked = false;
     };
