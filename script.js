@@ -18,8 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const adaWidgetCheckbox = document.getElementById("ada-widget");
     const contentWritingPagesInputGroup = document.getElementById("content-writing-pages-input");
 
-    // Shopify elements
-    const productsInput = document.getElementById("products");
+    // Shopify elements (No longer inputs, just a message)
+    // const productsInput = document.getElementById("products"); // Removed
 
     // Wix elements
     const wixPagesInput = document.getElementById("wix-pages");
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Reset values when switching platforms/currency
         pagesInput.value = 1;
-        productsInput.value = 0;
+        // productsInput.value = 0; // Removed
         contentPagesInput.value = 0;
         logoDesignCheckbox.checked = false;
         siteRecaptchaCheckbox.checked = false;
@@ -157,17 +157,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
         } else if (selectedPlatform === "shopify") {
-            const numberOfProducts = parseInt(productsInput.value);
-            if (isNaN(numberOfProducts) || numberOfProducts < 0) {
-                alert("Please enter a valid number of products (0 or more).");
-                return;
-            }
-            // Shopify Pricing (example, adjust as needed)
-            if (selectedCurrency === "usd") {
-                totalPrice = 500 + (numberOfProducts * 1);
-            } else if (selectedCurrency === "cad") {
-                totalPrice = 650 + (numberOfProducts * 1.3);
-            }
+            // Shopify now displays a contact message, no calculation needed
+            priceDisplay.textContent = "Contact WSI HUB for a quote";
+            return;
         } else if (selectedPlatform === "wix") {
             const numberOfPages = parseInt(wixPagesInput.value);
             if (isNaN(numberOfPages) || numberOfPages < 1) {
@@ -247,13 +239,12 @@ document.addEventListener("DOMContentLoaded", () => {
     siteRecaptchaCheckbox.addEventListener("change", calculatePrice);
     popupWindowCheckbox.addEventListener("change", calculatePrice);
 
-
-    adaWidgetCheckbox.addEventListener("change", calculatePrice);
-
     bilingualOptionSelect.addEventListener("change", () => { updateVisibility(); calculatePrice(); });
     bilingualPagesInput.addEventListener("input", calculatePrice);
 
-    productsInput.addEventListener("input", calculatePrice);
+    adaWidgetCheckbox.addEventListener("change", calculatePrice);
+
+    // productsInput.addEventListener("input", calculatePrice); // Removed
 
     wixPagesInput.addEventListener("input", calculatePrice);
     wixLogoDesignCheckbox.addEventListener("change", calculatePrice);
@@ -261,11 +252,10 @@ document.addEventListener("DOMContentLoaded", () => {
     wixSiteRecaptchaCheckbox.addEventListener("change", calculatePrice);
     wixPopupWindowCheckbox.addEventListener("change", calculatePrice);
 
-
-    wixAdaWidgetCheckbox.addEventListener("change", calculatePrice);
-
     wixBilingualOptionSelect.addEventListener("change", () => { updateVisibility(); calculatePrice(); });
     wixBilingualPagesInput.addEventListener("input", calculatePrice);
+
+    wixAdaWidgetCheckbox.addEventListener("change", calculatePrice);
 
     calculateBtn.addEventListener("click", calculatePrice);
 
@@ -273,4 +263,3 @@ document.addEventListener("DOMContentLoaded", () => {
     updateVisibility();
     calculatePrice();
 });
-
